@@ -46,7 +46,43 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-       
+       child: DataTable(
+        headingRowColor: WidgetStatePropertyAll(Colors.amberAccent),
+        dataRowColor: WidgetStatePropertyAll(Colors.amber),     
+        columns: [
+          DataColumn(label: Text("Id")),
+          DataColumn(label: Text("Name")),
+          DataColumn(label: Text("Salary")),
+          DataColumn(label: Text("Gender"))
+        ], 
+        rows: [
+          DataRow(cells: [
+            DataCell(Text("1")),
+            DataCell(Text("Hunain")),
+            DataCell(Text("90000")),
+            DataCell(Text("Male")),
+          ]),
+
+          DataRow(cells: [
+            DataCell(Text("1")),
+            DataCell(Text("Hunain")),
+            DataCell(Text("90000")),
+            DataCell(Text("Male")),
+
+          ]),
+
+
+          DataRow(cells: [
+            DataCell(Text("1")),
+            DataCell(Text("Hunain")),
+            DataCell(Text("90000")),
+            DataCell(Text("Male")),
+
+          ]),
+
+
+        ]
+        )
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
