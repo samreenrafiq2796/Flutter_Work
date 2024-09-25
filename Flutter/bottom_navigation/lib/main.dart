@@ -97,10 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child:_pages.elementAt(selectedindex) ,
       ),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedindex,
           backgroundColor: Colors.black,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.blue,
+          type: BottomNavigationBarType.shifting,
+          currentIndex: selectedindex,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.yellow,
           onTap: tap,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.call), label: "Calls"),
