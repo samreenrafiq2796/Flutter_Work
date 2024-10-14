@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "614301456619",
+    "project_id": "demodb-cdb27",
+    "storage_bucket": "demodb-cdb27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614301456619:android:3200f345c0e0da3b0a06ae",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClhutXiMp9cpgCVPfzpdKAgN9AnsRRN40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
