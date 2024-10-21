@@ -43,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   FirebaseFirestore db = FirebaseFirestore.instance;
-
+  String name = "", email ="";
   void delete_record(String i){
       try {
         db.collection("Person").doc(i).delete();
@@ -53,6 +53,74 @@ class _MyHomePageState extends State<MyHomePage> {
       }
   }
 
+void update_query(String i, String n , String e){
+ try {
+    db.collection("Person").doc(i).update({
+    "Name" : n,
+    "Email": e
+  });
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Record Updated")));
+
+ } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("$e")));
+   
+ }
+
+}
+
+void update_dialog(BuildContext con , String id, String name, String gmail){
+  TextEditingController ncontroller = TextEditingController(text:name);
+  TextEditingController encontroller = TextEditingController(text:gmail);
+
+  showDialog(context: con, 
+  builder: (a)=>AlertDialog(
+    title: Text("Update Record"),
+    content: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          constraints: BoxConstraints(maxWidth: 200),
+          margin: EdgeInsets.all(10),
+          child: TextField(
+           controller: ncontroller,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText:  name,
+              suffixIcon: Icon(Icons.person)             
+            ),
+          ),
+        ),
+
+        Container(
+          constraints: BoxConstraints(maxWidth: 200),
+          margin: EdgeInsets.all(10),
+          child: TextField(
+            controller: encontroller,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText:  gmail,
+              suffixIcon: Icon(Icons.email)             
+            ),
+          ),
+        )
+      ],
+    ),
+
+    actions: [
+      IconButton(onPressed: (){
+
+          Navigator.of(con).pop();
+      }, icon: Icon(Icons.close)),
+
+      IconButton(onPressed: (){
+  
+          update_query(id, ncontroller.text, encontroller.text);
+
+          Navigator.of(con).pop();
+      }, icon: Icon(Icons.check))
+    ],
+  ));
+}
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +132,8 @@ class _MyHomePageState extends State<MyHomePage> {
        
         title: Text(widget.title),
       ),
-      body: StreamBuilder<QuerySnapshot>(
+      body:
+      StreamBuilder<QuerySnapshot>(
          stream: db.collection("Person").snapshots(),
          builder: (context, snapshot){
             var data = snapshot.data!.docs;
@@ -73,6 +142,10 @@ class _MyHomePageState extends State<MyHomePage> {
               itemBuilder: (context,i){    
                 if(snapshot.data!.docs.isEmpty || !snapshot.hasData){
                   return Center(child: Text("No Data Found"),);
+                }
+                if(snapshot.hasError){
+                  return  Center(child: CircularProgressIndicator(),);
+
                 }
                 if(snapshot.connectionState == ConnectionState.waiting){
                   return  Center(child: CircularProgressIndicator(),);
@@ -83,14 +156,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   leading: Icon(Icons.person),
                   title: Text(per["Name"]?? "no name"),
                   subtitle:  Text(per["Email"] ?? "no Email"),
-                  trailing: IconButton(icon: Icon(Icons.delete,color: Colors.red,),
+                  trailing:Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children:[
+                       IconButton(icon: Icon(Icons.delete,color: Colors.red,),
                   onPressed:(){
                     delete_record(person_id);
                   },),
+
+                  IconButton(icon: Icon(Icons.edit,color: Colors.green,),
+                  onPressed:(){
+                 
+                    update_dialog(context, person_id, per["Name"], per["Email"]);
+                  },),
+                    ]
+                  )
                 );
               }
               );
-         }),
+         }) ,
          floatingActionButton: FloatingActionButton(
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (a)=>Add()));
