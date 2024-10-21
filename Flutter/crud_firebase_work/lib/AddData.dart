@@ -43,17 +43,26 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   FirebaseFirestore db = FirebaseFirestore.instance;
  String email = "", getEmail = "", pswd = "", getPswd = "", name="", get_name="";
+ TextEditingController ncontroller = TextEditingController();
+ TextEditingController econtroller = TextEditingController();
+ TextEditingController pcontroller = TextEditingController();
+
+
 
   void get_textbox_value()  {
     setState(()  {
       
 try {
      db.collection("Person").add({
-        "Name":name,
-        "Email":email,
-        "Password":pswd,
+        "Name":ncontroller.text,
+        "Email":econtroller.text,
+        "Password":pcontroller.text,
 
       });
+      ncontroller.clear();
+      econtroller.clear();
+      pcontroller.clear();
+
 
      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Data Saved"), backgroundColor: Colors.green,action: SnackBarAction(label: "Ok", onPressed: (){
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -85,16 +94,7 @@ try {
               margin: EdgeInsets.symmetric(vertical: 10),
               constraints: BoxConstraints(maxWidth: 300),
               child: TextField(
-                onSubmitted: (va){
-                  setState(() {
-                    name=va;
-                  });
-                },
-                onChanged: (va){
-                  setState(() {
-                    name=va;
-                  });
-                },
+                controller: ncontroller,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Enter Name",
@@ -104,16 +104,8 @@ try {
               margin: EdgeInsets.symmetric(vertical: 10),
               constraints: BoxConstraints(maxWidth: 300),
               child: TextField(
-                onSubmitted: (va){
-                  setState(() {
-                    email=va;
-                  });
-                },
-                 onChanged: (va){
-                  setState(() {
-                    email=va;
-                  });
-                },
+                               controller: econtroller,
+
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Enter Email",
@@ -123,16 +115,8 @@ try {
               margin: EdgeInsets.symmetric(vertical: 10),
               constraints: BoxConstraints(maxWidth: 300),
               child: TextField(
-                onSubmitted: (va){
-                  setState(() {
-                    pswd=va;
-                  });
-                },
-                 onChanged: (va){
-                  setState(() {
-                    pswd=va;
-                  });
-                },
+                               controller: pcontroller,
+
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Enter Password",
