@@ -64,7 +64,7 @@ try {
       pcontroller.clear();
 
 
-     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Data Saved"), backgroundColor: Colors.green,action: SnackBarAction(label: "Ok", onPressed: (){
+     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text("Data Saved"), backgroundColor: Colors.green,action: SnackBarAction(label: "Ok", onPressed: (){
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
      })));
      
@@ -91,43 +91,43 @@ try {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              constraints: BoxConstraints(maxWidth: 300),
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              constraints: const BoxConstraints(maxWidth: 300),
               child: TextField(
                 controller: ncontroller,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Enter Name",
                     suffixIcon: Icon(Icons.person_4)),
               )),
           Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              constraints: BoxConstraints(maxWidth: 300),
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              constraints: const BoxConstraints(maxWidth: 300),
               child: TextField(
                                controller: econtroller,
 
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Enter Email",
                     suffixIcon: Icon(Icons.email)),
               )),
           Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              constraints: BoxConstraints(maxWidth: 300),
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              constraints: const BoxConstraints(maxWidth: 300),
               child: TextField(
                                controller: pcontroller,
 
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Enter Password",
                     suffixIcon: Icon(Icons.lock)),
               )),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.symmetric(vertical: 10),
             child: ElevatedButton.icon(
                 onPressed: get_textbox_value,
-                icon: Icon(Icons.turn_right),
-                label: Text("Save Data")),
+                icon: const Icon(Icons.turn_right),
+                label: const Text("Save Data")),
           )
         ],
       )), // This trailing comma makes auto-formatting nicer for build methods.
