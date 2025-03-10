@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "375389897293",
+    "firebase_url": "https://savedatainfirebase-d9f89-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "savedatainfirebase-d9f89",
+    "storage_bucket": "savedatainfirebase-d9f89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375389897293:android:6963733e4f6a2a008f9204",
+        "android_client_info": {
+          "package_name": "com.example.crud_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375389897293-7tncpbrgf3j37ng4kaocsnbe189qee80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-PleDsm11aZ18GbHCEizU4FBsd85K3mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375389897293-7tncpbrgf3j37ng4kaocsnbe189qee80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375389897293:android:9bb3fbb9cdcd93b38f9204",
+        "android_client_info": {
+          "package_name": "com.example.loginandsignupwithfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375389897293-7tncpbrgf3j37ng4kaocsnbe189qee80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-PleDsm11aZ18GbHCEizU4FBsd85K3mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375389897293-7tncpbrgf3j37ng4kaocsnbe189qee80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375389897293:android:84160e0d4f017ae88f9204",
+        "android_client_info": {
+          "package_name": "com.example.savedatainfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375389897293-7tncpbrgf3j37ng4kaocsnbe189qee80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-PleDsm11aZ18GbHCEizU4FBsd85K3mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375389897293-7tncpbrgf3j37ng4kaocsnbe189qee80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
